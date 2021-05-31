@@ -16,7 +16,7 @@ function sendEmail() {
         To: 'gurusthanqueries@gmail.com',
         From: "gurusthanqueries@gmail.com",
         Subject: "New Experience",
-        Body: 'There are new experiences. Please check them <a href="https://manavrox.github.io/BootstrapWebsite/verifyExperiences.html">here</a>.',
+        Body: 'There are new experiences. Please check them <a href="himgirihealing2feeling.org/verifyExperiences.html">here</a>.',
       })
         .then(function (message) {
           //alert("mail sent successfully")
@@ -28,24 +28,35 @@ function sendEmail() {
 submitBtn.addEventListener('click', (e) => {
 	e.preventDefault();
 	const autoId = rootRef.push().key;
-	rootRef.child(autoId).set({
-		name: name.value,
-		email: email.value,
-		experience: experience.value,
-		verified: false,
-		priority: 10,
-		key: autoId
-	})
-	.then(() => {
-		window.alert("Thankyou. Your resposnse has been recorded. Your resposnse will be available on the website after verification and filering");
-		sendEmail();
-	}).catch(error => {
-		console.error(error);
-	});
+	console.log(email.value);
+	if((validateEmail(email.value) || email.value.length==0)&&(experience.value.length!=0)){
+				rootRef.child(autoId).set({
+				name: name.value,
+				email: email.value,
+				experience: experience.value,
+				verified: false,
+				priority: 10,
+				key: autoId
+		})
+		.then(() => {
+				window.alert("Thankyou. Your resposnse has been recorded. Your resposnse will be available on the website after verification and filering");
+				sendEmail();
+		}).catch(error => {
+				window.alert("There was a problem inserting, please try again");
+				console.error(error);
+		});
 
-	document.getElementById('name').value = '';
-	document.getElementById('email').value = '';
-	document.getElementById('experience').value = '';
+		document.getElementById('name').value = '';
+		document.getElementById('email').value = '';
+		document.getElementById('experience').value = '';
+	}
+	else if(experience.value.length==0) {
+		window.alert("Please enter your experience");
+	}
+	else {
+		window.alert("Please enter a valid Email id");
+	}
+	
 });
 
 
@@ -72,3 +83,8 @@ rootRef.orderByChild('priority').on('value', snapshot => {
     document.getElementById("demo").innerHTML = text;
 });
 
+
+function validateEmail(email) {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
