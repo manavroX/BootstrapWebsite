@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Spiritual Experiences</title>
+    <title>Verify Experiences</title>
 
     <!-- Bootstrap Core CSS -->
 
@@ -120,45 +120,16 @@
     </header>
 
     <form>
-        <table>
-            <tr>
-                <div>
-                    <td>
-                        Name:
-                    </td>
-                    <td>
-                        <input type="text" name="name" id="name">
-                    </td>
-                </div>
-            </tr>
-            <tr>
-                <div>
-                    <td>
-                        Email ID:
-                    </td>
-                    <td>
-                        <input type="email" name="email" id="email">    
-                    </td>
-                </div>
-            </tr>
-            <tr>
-                <div>
-                    <td>
-                        Experience:
-                    </td>
-                    <td>
-                        <input type="text" name="experience" id="experience">    
-                    </td>
-                </div>
-            </tr>
-            <tr>
-                <td>
-                    <div>
-                        <button id="submit">Submit</button>   
-                    </div>
-                </td>
-            </tr>
-        </table>
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username">
+        
+        <br>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password">
+
+        <br>
+        <input type="submit" name="login" id="login" value="login">
+        
     </form>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-app.js"></script>
@@ -186,10 +157,10 @@
       firebase.analytics();
     </script>
 
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <!-- <script src="https://smtpjs.com/v3/smtp.js"></script> -->
 
     <p id="demo"></p>
 
-    <script src="js/firebaseUpload.js"></script>
+    <script src="js/verifyExperience.js"></script>
 </body>
 </html>
