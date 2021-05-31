@@ -16,7 +16,7 @@ function sendEmail() {
         To: 'gurusthanqueries@gmail.com',
         From: "gurusthanqueries@gmail.com",
         Subject: "New Experience",
-        Body: 'There are new experiences. Please check them <a href="himgirihealing2feeling.org/verifyExperiences.html">here</a>',
+        Body: 'There are new experiences. Please check them <a href="https://manavrox.github.io/BootstrapWebsite/verifyExperiences.html">here</a>.',
       })
         .then(function (message) {
           //alert("mail sent successfully")
