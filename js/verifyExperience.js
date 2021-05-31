@@ -37,7 +37,7 @@ loginBtn.addEventListener('click', (e) => {
 			    		count++;
 			    		text+= "Name: " + '<input type="text" id="'+experienceArr[i].key+'name" value="'+experienceArr[i].name + '"><br>';
 			    		text+= "Email: " + '<input type="text" id="'+experienceArr[i].key+'email" value="'+experienceArr[i].email + '"><br>';
-			    		text+= "Experience: " + '<input type="text" id="'+experienceArr[i].key+'experience" value="'+experienceArr[i].experience + '"><br>';
+			    		text+= "Experience: " + '<textarea rows="5" id="'+experienceArr[i].key+'experience">'+experienceArr[i].experience + '</textarea><br>';
 			    		text+= "Priority: " + '<input type="number" id="'+experienceArr[i].key+'priority" value="'+experienceArr[i].priority + '"><br>';
 			    		text+= '<input type="submit" onclick="acceptclick(this.id,)" value="accept" id="'+experienceArr[i].key+'" name="accept">';
 			    		text+= '<input type="submit" onclick="rejectclick(this.id)" value="reject" id="'+experienceArr[i].key+'" name="reject">';
